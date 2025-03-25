@@ -1,0 +1,300 @@
+/* Modern CSS with animations and responsive design */
+:root {
+    --background-dark: #0a0b2e;
+    --text-light: #ffffff;
+    --text-dim: #8888a0;
+    --accent-gold: #e6d5a7;
+    --moon-glow: #ffd95b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.calculator {
+    width: 100%;
+    max-width: 440px;
+    position: relative;
+    padding: 2rem;
+}
+
+/* Stars Animation */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 1.5s infinite ease-in-out;
+}
+
+.star1 { top: 20%; right: 15%; }
+.star2 { top: 30%; right: 25%; animation-delay: 0.5s; }
+.star3 { top: 25%; right: 35%; animation-delay: 1s; }
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Header and Logo */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.logo {
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+.moon {
+    width: 40px;
+    height: 40px;
+    background: var(--moon-glow);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 20px var(--moon-glow);
+    animation: glow 2s infinite ease-in-out;
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px var(--moon-glow); }
+    50% { box-shadow: 0 0 30px var(--moon-glow); }
+}
+
+.zzz {
+    position: absolute;
+    top: -10px;
+    left: -15px;
+    color: var(--text-dim);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Main Content */
+.main-content {
+    position: relative;
+    z-index: 1;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+}
+
+/* Time Picker */
+.time-picker {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.time-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 2rem;
+    pointer-events: none;
+}
+
+.time-value {
+    font-size: 3.5rem;
+    font-weight: 600;
+    min-width: 120px;
+    text-align: right;
+}
+
+.time-period {
+    color: var(--text-dim);
+    cursor: pointer;
+    pointer-events: auto;
+    padding: 0.5rem;
+    transition: color 0.2s;
+}
+
+.time-period.active {
+    color: var(--text-light);
+}
+
+input[type="time"] {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+/* Buttons */
+.calculate-btn {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    background: var(--accent-gold);
+    color: var(--background-dark);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.calculate-btn:hover {
+    transform: translateY(-2px);
+    background-color: #f0e0b5;
+}
+
+.calculate-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+}
+
+.alternative {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.alternative p {
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+}
+
+/* Results Section */
+.results {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    display: none;
+}
+
+.results h3 {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.results p {
+    color: var(--text-dim);
+    margin-bottom: 1.5rem;
+}
+
+.time-suggestions {
+    display: grid;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.time-option {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 1rem;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease-out;
+}
+
+.time-option.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.time {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dim);
+}
+
+.cycles, .hours {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+.tip {
+    margin-top: 1rem;
+    color: var(--text-dim);
+    font-style: italic;
+}
+
+/* Info Section */
+.info-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-section h3 {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.info-section p {
+    color: var(--text-dim);
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .calculator {
+        padding: 1rem;
+    }
+} 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="stars">
+            <div class="star star1"></div>
+            <div class="star star2"></div>
+            <div class="star star3"></div>
+        </div>
+        
+        <div class="header">
+            <div class="logo">
+                <span class="zzz">Z<sup>z</sup><sup>z</sup></span>
+                <div class="moon"></div>
+            </div>
+            <h1>Sleep Calculator</h1>
+        </div>
+
+        <div class="main-content">
+            <h2>What time do you want to wake up?</h2>
+            
+            <div class="time-picker">
+                <input type="time" id="timeInput" required>
+                <div class="time-display">
+                    <span class="time-value">6:30</span>
+                    <span class="time-period active">AM</span>
+                    <span class="time-period">PM</span>
+                </div>
+            </div>
+
+            <button class="calculate-btn" onclick="calculateBedtime()">
+                Calculate bedtime <span class="moon-icon">🌙</span>
+            </button>
+
+            <div class="alternative">
+                <p>If you want to go to bed now...</p>
+                <button class="calculate-btn secondary" onclick="calculateWakeUp()">
+                    Calculate wake-up time <span class="clock-icon">⏰</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="results" class="results"></div>
+
+        <div class="info-section">
+            <h3>How it works:</h3>
+            <p>Sleep cycles typically last 90 minutes. A good night's sleep consists of 4-6 complete cycles.</p>
+            <p>This calculator helps you wake up between cycles, when you're in your lightest sleep phase.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
